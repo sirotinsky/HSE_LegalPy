@@ -1,4 +1,4 @@
-repondents = [
+respondents = [
     {'full_name': 'общество с ограниченной ответственностью " ПРОДСЕРВИС "', 'short_name': 'ООО " ПРОДСЕРВИС "',
      'inn': '2465081302', 'ogrn': '1042402640125', 'region': 'Красноярский край', 'category': 'Обычная организация',
      'category_code': 'SimpleOrganization', 'bankruptcy_id': '12182', 'case_number': 'А33-2794/2011',
