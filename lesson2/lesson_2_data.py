@@ -1068,17 +1068,19 @@ courts = [{'court_name': 'Арбитражного суда Алтайского
            'court_time_shift': 2, 'court_phone_info': '(34260)4-87-97(34260)4-15-65',
            'court_fax_info': '(34260)4-15-65',
            'court_email': 'a50.psp@arbitr.rua50.8sostav@arbitr.ru - для направления сторонами документов в рамках рассматриваемых дел',
-           'court_website': 'http://www.perm.arbitr.ru/', 'court_head': 'Мещерякова Татьяна Игоревна'}, {
+           'court_website': 'http://www.perm.arbitr.ru/', 'court_head': 'Мещерякова Татьяна Игоревна'},
+          {
               'court_name': 'Постоянное судаебное присутствие Арбитражного судаа Архангельской области в Ненецком автономном округе (г. Нарьян-Мар)',
               'court_code': 'А05П', 'court_address': '166000, г. Нарьян-Мар,ул. Смидовича, д. 4.',
               'court_time_shift': 0, 'court_phone_info': '(81853)4-05-22', 'court_fax_info': '',
               'court_email': 'info@arhangelsk.arbitr.ru', 'court_website': 'http://arhangelsk.arbitr.ru/',
-              'court_head': ''}, {'court_name': 'Арбитражного суда Республики Адыгея', 'court_code': 'А01',
-                                  'court_address': '385000, Республика Адыгея, г. Майкоп,ул. Краснооктябрьская, 15',
-                                  'court_time_shift': 0, 'court_phone_info': '(8772)52-63-34(8772)57-16-26',
-                                  'court_fax_info': '(8772)52-76-80', 'court_email': 'info@adyg.arbitr.ru',
-                                  'court_website': 'http://adyg.arbitr.ru/',
-                                  'court_head': 'Боровик Александр Михайлович'},
+              'court_head': ''},
+          {'court_name': 'Арбитражного суда Республики Адыгея', 'court_code': 'А01',
+           'court_address': '385000, Республика Адыгея, г. Майкоп,ул. Краснооктябрьская, 15',
+           'court_time_shift': 0, 'court_phone_info': '(8772)52-63-34(8772)57-16-26',
+           'court_fax_info': '(8772)52-76-80', 'court_email': 'info@adyg.arbitr.ru',
+           'court_website': 'http://adyg.arbitr.ru/',
+           'court_head': 'Боровик Александр Михайлович'},
           {'court_name': 'Арбитражного суда Республики Алтай', 'court_code': 'А02',
            'court_address': '649000, Республика Алтай, Горно-Алтайск,ул. Ленкина, 4', 'court_time_shift': 4,
            'court_phone_info': '(388-22)4-76-58 - для справок, канцелярия(388-22)4-77-17 - приёмная председателя судаа(388-22)4-77-03',
@@ -1429,3 +1431,5 @@ courts = [{'court_name': 'Арбитражного суда Алтайского
            'court_phone_info': '(4842)71-33-33', 'court_fax_info': '(4842)22-28-08',
            'court_email': 'info@fasco.arbitr.ru', 'court_website': 'http://fasco.arbitr.ru/',
            'court_head': 'Орлов Александр Владимирович'}]
+
+courts = {i["court_code"]: i for i in courts}
