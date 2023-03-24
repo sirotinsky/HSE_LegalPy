@@ -17,7 +17,7 @@ from lesson_2_data import courts, respondents
 """
 
 
-def func_1_factorial(number: int):
+def func_1_factorial(number: int) -> int | float:
     start = 1
     result = 1
     for i in range(number):
@@ -26,7 +26,7 @@ def func_1_factorial(number: int):
     return result
 
 
-def func_2_max_number(*args):
+def func_2_max_number(*args) -> int | float:
     max_ = 0
     for i in args:
         if i > max_:
@@ -34,7 +34,7 @@ def func_2_max_number(*args):
     return max_
 
 
-def func_3_triangle_square(leg_1: int, leg_2: int):
+def func_3_triangle_square(leg_1: int, leg_2: int) -> int | float:
     return (leg_1 * leg_2) / 2
 
 
