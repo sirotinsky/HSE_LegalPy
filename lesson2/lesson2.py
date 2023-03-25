@@ -80,7 +80,12 @@ def task_1():
 """
 
 
-def make_court_nominative_case(court_name):
+def make_court_nominative_case(court_name: str) -> str:
+    """
+
+    :param court_name:
+    :return:
+    """
     words = court_name.split(" ")[2::]
     text = "Арбитражный суд"
     for i in words:
@@ -211,9 +216,9 @@ def task_3():
 
 
 def main():
-    task_1()
+    # task_1()
     task_2()
-    task_3()
+    # task_3()
 
 
 if __name__ == "__main__":
