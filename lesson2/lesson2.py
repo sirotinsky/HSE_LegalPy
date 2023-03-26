@@ -216,9 +216,9 @@ def task_3():
 
 
 def main():
-    # task_1()
+    task_1()
     task_2()
-    # task_3()
+    task_3()
 
 
 if __name__ == "__main__":
