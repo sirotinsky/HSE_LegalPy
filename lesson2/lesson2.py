@@ -39,7 +39,7 @@ def func_3_triangle_square(leg_1: int, leg_2: int) -> int | float:
 
 
 def task_1():
-    a, b, c = randint(1, 99), randint(1, 99), randint(1, 99)
+    a, b, c = 15, randint(1, 99), randint(1, 99)
     print(f"Факториал числа a({a}) - {func_1_factorial(a)}")
     print(f"Из чисел a = {a}, b = {b}, c = {c} самое большое - {func_2_max_number(a, b, c)}")
     print(f"Из чисел a = {a}, b = {b}, c = {c} самое большое - {max((a, b, c))}")
@@ -217,8 +217,8 @@ def task_3():
 
 def main():
     task_1()
-    task_2()
-    task_3()
+    # task_2()
+    # task_3()
 
 
 if __name__ == "__main__":
