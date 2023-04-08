@@ -1,3 +1,5 @@
+print("stop")
+
 respondents = [
     {'full_name': 'общество с ограниченной ответственностью " ПРОДСЕРВИС "', 'short_name': 'ООО " ПРОДСЕРВИС "',
      'inn': '2465081302', 'ogrn': '1042402640125', 'region': 'Красноярский край', 'category': 'Обычная организация',
@@ -1433,3 +1435,6 @@ courts = [{'court_name': 'Арбитражного суда Алтайского
            'court_head': 'Орлов Александр Владимирович'}]
 
 courts = {i["court_code"]: i for i in courts}
+
+if __name__ == "__main__":
+    print("stop")
