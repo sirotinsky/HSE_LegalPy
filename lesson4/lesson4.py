@@ -1,5 +1,10 @@
+import json
+import os
 from datetime import date, datetime
-from dadata import Dadata
+from settings import BASE_DIR
+import zoneinfo
+
+zone = zoneinfo.ZoneInfo("Europe/Moscow")
 
 """
 При вызове метода конструктора экземпляра (__init__) должны создаваться
@@ -31,15 +36,15 @@ class CourtCase:
         self.is_finished = False
         self.verdict = ""
 
-    def set_a_listening_datetime(self, start: datetime, end: datetime, location: str, description: str):
+    def set_a_listening_datetime(self, start: str, end: str, location: str, description: str):
         new_listening = {
-            "start": start.isoformat(),
-            "end": end.isoformat(),
+            "start": datetime.fromisoformat(start),
+            "end": datetime.fromisoformat(end),
             "location": location,
             "description": description
         }
         self.listening_datetimes.append(new_listening)
-        self.listening_datetimes.sort(key=lambda x: x["start"])
+        self.listening_datetimes.sort(key=lambda x: x["start"], reverse=True)
 
     def add_participant(self, inn: str):
         if inn not in self.case_participants:
@@ -57,6 +62,17 @@ class CourtCase:
         self.verdict = verdict
         self.is_finished = True
 
+    def next_listening(self):
+        next_date = None
+        for i in self.listening_datetimes:
+            if i['start'] < datetime.now(zone):
+                break
+            next_date = i['start']
+        if next_date:
+            print(f"Следующее судебное заседание {next_date.isoformat()}")
+        else:
+            print("Судебных заседаний не намечается")
+
 
 def test():
     a = CourtCase("А40-183194/2015")
@@ -64,10 +80,16 @@ def test():
     a.add_participant("7701272485")
     a.add_participant("7701272484")
     a.remove_participant("7701272484")
-    a.set_a_listening_datetime(datetime(2022, 2, 2, 15, 30),
-                               datetime(2022, 2, 2, 15, 45),
-                               "АСГМ зал 8014",
-                               "Жалоба на действия АУ")
+    with open(os.path.join(BASE_DIR, "lesson3", "court_dates.json"), "r") as f:
+        dates = json.load(f)
+    for i in dates:
+        a.set_a_listening_datetime(
+            i["start"],
+            i["end"],
+            i["location"],
+            i["description"]
+        )
+    a.next_listening()
     a.make_a_decision("Все ок обанкротили, АУ молодец")
     print("stop")
 
