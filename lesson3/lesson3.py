@@ -1,15 +1,11 @@
 import json
 import csv
 import re
+from ics import Calendar
+from datetime import datetime, timedelta
+import zoneinfo
 
-"""
-Найдите информацию об организациях:
-a. Получите список ИНН из файла «traders.txt»;
-b. Найдите информацию об организациях с этими ИНН в файле
-«traders.json»;
-c. Сохраните информацию об ИНН, ОГРН и адресе организаций из файла
-«traders.txt» в файл «traders.csv».
-"""
+zone = zoneinfo.ZoneInfo("Europe/Moscow")
 
 
 def task_1():
@@ -56,18 +52,34 @@ def task_2():
             elif not searched:
                 new_item = {email: [inn]}
                 inverted.update(new_item)
-    pass
 
     with open('emails.json', "w") as f:
         json.dump(results, f)
     print("stop")
 
 
-def test():
-    task_1()
-    task_2()
+def task_3():
+    case_number = "А40-183194-2015"
+    with open(f"{case_number}.ics", "r") as f:
+        raw_data = f.read()
+    c = Calendar(raw_data)
+    cleaned_events = [i for i in c.events if i.begin.datetime > datetime.now(zone) - timedelta(days=10000)]
+    result = [{"case_number": f"{case_number}",
+               "start": i.begin.datetime.isoformat(),
+               "end": i.end.datetime.isoformat(),
+               "location": i.location.strip(),
+               "description": i.description
+               } for i in cleaned_events]
+    with open("court_dates.json", "w") as f:
+        json.dump(result, f)
+
+
+def main():
+    # task_1()
+    # task_2()
+    task_3()
 
 
 if __name__ == "__main__":
-    test()
+    main()
     print("stop")
