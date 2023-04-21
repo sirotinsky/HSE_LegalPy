@@ -58,8 +58,7 @@ def task_2():
     print("stop")
 
 
-def task_3():
-    case_number = "А40-183194-2015"
+def task_3(case_number):
     with open(f"{case_number}.ics", "r") as f:
         raw_data = f.read()
     c = Calendar(raw_data)
@@ -70,14 +69,15 @@ def task_3():
                "location": i.location.strip(),
                "description": i.description
                } for i in cleaned_events]
-    with open("court_dates.json", "w") as f:
-        json.dump(result, f)
-
+    # with open("court_dates.json", "w") as f:
+    #     json.dump(result, f)
+    return result
 
 def main():
+    case_number = "А40-183194-2015"
     # task_1()
     # task_2()
-    task_3()
+    result = task_3(case_number)
 
 
 if __name__ == "__main__":
