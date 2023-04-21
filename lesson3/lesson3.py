@@ -69,8 +69,8 @@ def task_3(case_number):
                "location": i.location.strip(),
                "description": i.description
                } for i in cleaned_events]
-    # with open("court_dates.json", "w") as f:
-    #     json.dump(result, f)
+    with open(f"{case_number}_listenings.json", "w") as f:
+        json.dump(result, f)
     return result
 
 def main():
