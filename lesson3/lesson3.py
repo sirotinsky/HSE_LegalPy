@@ -73,6 +73,7 @@ def task_3(case_number):
         json.dump(result, f)
     return result
 
+
 def main():
     case_number = "А40-183194-2015"
     # task_1()
