@@ -1,6 +1,5 @@
-from io import StringIO, BytesIO
+from io import BytesIO
 from docx import Document
-from docx.shared import Inches
 
 
 def make_a_doc(user_data, poll_data):
@@ -12,5 +11,14 @@ def make_a_doc(user_data, poll_data):
            f"Ваc зовут - {poll_data[2]}\n" \
            f"Ваш возраст - {poll_data[3]} лет\n"
     document.add_paragraph(text)
-    document.save(f"{user_data[0]}.docx")
+
+    # Нам необходимо создать file-like объект куда мы произведем сохранение нашего docx документа после его генерации.
+    # Такие объекты создает функция open() когда мы открываем файлы через неё, но в нашем случае мы создаем данный
+    # объект напрямую
+    doc_byte_file_object = BytesIO()
+    # Сохраняем данные в объект BytesIO
+    document.save(doc_byte_file_object)
+    # Теперь нам необходимо достать байтовое представление данных из этого объекта и они будут готовы к передаче
+    doc_byte_data = doc_byte_file_object.getvalue()
+    return doc_byte_data
 

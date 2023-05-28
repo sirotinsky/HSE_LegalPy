@@ -88,8 +88,8 @@ def poll_result(update: Update, context: CallbackContext):
            f"Ваш ИНН - {poll_data[1]}\n" \
            f"Ваc зовут - {poll_data[2]}\n" \
            f"Ваш возраст - {poll_data[3]} лет\n"
-    # make_a_doc(user_data, poll_data)
-    # update.message.reply_document(f"{user_data[0]}.docx", filename='Poll.docx')
+    doc = make_a_doc(user_data, poll_data)
+    update.message.reply_document(doc, filename='Poll.docx')
     context.bot.send_message(chat_id=update.effective_chat.id, text=text,
                              reply_markup=ReplyKeyboardMarkup(poll_menu, one_time_keyboard=False))
 
