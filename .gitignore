@@ -1,6 +1,6 @@
-venv
-.env
 .idea
-lesson3/10000_efrsb_messages.json
-lesson3/100000_efrsb_messages.json
-lesson3/traders.csv
+.env
+*.pyc
+__pycache__
+100000_efrsb_messages.json
+.DS_Store
