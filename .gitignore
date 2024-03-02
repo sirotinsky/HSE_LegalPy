@@ -2,6 +2,7 @@
 .env
 *.pyc
 __pycache__
+10000_efrsb_messages.json
 100000_efrsb_messages.json
 .DS_Store
 venv

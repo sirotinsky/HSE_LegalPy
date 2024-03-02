@@ -38,7 +38,7 @@ a = input("Введите число: ")
 
 if a.isdigit():
     seconds = int(a)
-    minutes = seconds / 60
+    minutes = seconds
     hours = minutes / 60
     print(seconds)
     print(minutes)
