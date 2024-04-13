@@ -1431,7 +1431,8 @@ courts = [{'court_name': 'Арбитражного суда Алтайского
            'court_address': '248001 г. Калуга,ул. Кирова д.4', 'court_time_shift': 0,
            'court_phone_info': '(4842)71-33-33', 'court_fax_info': '(4842)22-28-08',
            'court_email': 'info@fasco.arbitr.ru', 'court_website': 'http://fasco.arbitr.ru/',
-           'court_head': 'Орлов Александр Владимирович'}]
+           'court_head': 'Орлов Александр Владимирович'}
+          ]
 
 courts = {i["court_code"]: i for i in courts}
 
